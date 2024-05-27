@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MySQL CRUD Operations</title>
+    <style>
+        body {
+            display: flex;
+        }
+        #sidebar {
+            width: 200px;
+            padding: 15px;
+            background-color: #f0f0f0;
+            height: 100vh;
+        }
+        #main {
+            flex: 1;
+            padding: 15px;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+    </style>
+    <script>
+        function showForm() {
+            var operation = document.getElementById("operation").value;
+            var forms = document.getElementsByClassName("crud-form");
+            for (var i = 0; i < forms.length; i++) {
+                forms[i].style.display = "none";
+            }
+            document.getElementById(operation).style.display = "block";
+        }
+    </script>
+</head>
+<body>
+    <div id="sidebar">
+        <h2>Select Operation</h2>
+        <select id="operation" onchange="showForm()">
+            <option value="insert-form">Insert</option>
+            <option value="update-form">Update</option>
+            <option value="read-form">Read</option>
+            <option value="delete-form">Delete</option>
+        </select>
+    </div>
+    <div id="main">
+        <!-- Insert Data Form -->
+        <div id="insert-form" class="crud-form"> 
+            <h2>Insert Data</h2>
+            <form action="/insert" method="post"> 
+                <label for="PersonsID">ID:</label>
+                <input type="text" id="PersonsID" name="PersonsID"><br>
+                <label for="LastName">LNAME:</label>
+                <input type="text" id="LastName" name="LastName"><br>
+                <label for="FirstName">FName:</label>
+                <input type="text" id="FirstName" name="FirstName"><br>
+                <label for="Address">ADDRESS:</label>
+                <input type="text" id="Address" name="Address"><br>
+                <label for="City">CITY:</label>
+                <input type="text" id="City" name="City"><br>
+                <input type="submit" value="Insert">
+            </form>
+        </div> 
+
+        <!-- Update Data Form -->
+        <div id="update-form" class="crud-form" style="display:none">
+            <h2>Update Data</h2>
+            <form action="/update" method="post">
+                <label for="PersonsID">ID:</label>
+                <input type="text" id="PersonsID" name="PersonsID"><br>
+                <label for="LastName">LNAME:</label>
+                <input type="text" id="LastName" name="LastName"><br>
+                <label for="FirstName">FName:</label>
+                <input type="text" id="FirstName" name="FirstName"><br>
+                <label for="Address">ADDRESS:</label>
+                <input type="text" id="Address" name="Address"><br>
+                <label for="City">CITY:</label>
+                <input type="text" id="City" name="City"><br>
+                <input type="submit" value="Update">
+            </form>
+        </div>
+
+        <!-- Read Data Form -->
+        <div id="read-form" class="crud-form" style="display:none">
+            <h2>Read Data</h2>
+            <form action="/read" method="get">
+                <input type="submit" value="Read">
+            </form>
+        </div>
+
+        <!-- Delete Data Form -->
+        <div id="delete-form" class="crud-form" style="display:none">
+            <h2>Delete Data</h2>
+            <form action="/delete" method="post">
+                <label for="PersonsID">ID:</label>
+                <input type="text" id="PersonsID" name="PersonsID"><br>
+                <input type="submit" value="Delete">
+            </form>
+        </div>
+    </div>
+</body>
+</html> 
