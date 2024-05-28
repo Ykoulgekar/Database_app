@@ -9,16 +9,21 @@
         }
         #sidebar {
             width: 200px;
-            padding: 15px;
+            padding: 20px;
             background-color: #f0f0f0;
             height: 100vh;
         }
         #main {
             flex: 1;
-            padding: 15px;
+            padding: 30px;
         }
         form {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+        }
+        #mysql-icon {
+            width: 100px;
+            display: block;
+            margin: 0 auto 20px;
         }
     </style>
     <script>
@@ -35,10 +40,14 @@
 <body>
     <div id="sidebar">
         <h2>Select Operation</h2>
+        <img src="{{ url_for('static', filename='images/download.png') }}" id="mysql-icon" alt="MySQL">
         <select id="operation" onchange="showForm()">
             <option value="insert-form">Insert</option>
+
             <option value="update-form">Update</option>
+
             <option value="read-form">Read</option>
+
             <option value="delete-form">Delete</option>
         </select>
     </div>
@@ -47,8 +56,8 @@
         <div id="insert-form" class="crud-form"> 
             <h2>Insert Data</h2>
             <form action="/insert" method="post"> 
-                <label for="PersonsID">ID:</label>
-                <input type="text" id="PersonsID" name="PersonsID"><br>
+                <label for="PersonID">ID:</label>
+                <input type="text" id="PersonID" name="PersonID"><br>
                 <label for="LastName">LNAME:</label>
                 <input type="text" id="LastName" name="LastName"><br>
                 <label for="FirstName">FName:</label>
@@ -65,8 +74,8 @@
         <div id="update-form" class="crud-form" style="display:none">
             <h2>Update Data</h2>
             <form action="/update" method="post">
-                <label for="PersonsID">ID:</label>
-                <input type="text" id="PersonsID" name="PersonsID"><br>
+                <label for="PersonID">ID:</label>
+                <input type="text" id="PersonID" name="PersonID"><br>
                 <label for="LastName">LNAME:</label>
                 <input type="text" id="LastName" name="LastName"><br>
                 <label for="FirstName">FName:</label>
@@ -91,7 +100,7 @@
         <div id="delete-form" class="crud-form" style="display:none">
             <h2>Delete Data</h2>
             <form action="/delete" method="post">
-                <label for="PersonsID">ID:</label>
+                <label for="PersonID">ID:</label>
                 <input type="text" id="PersonsID" name="PersonsID"><br>
                 <input type="submit" value="Delete">
             </form>

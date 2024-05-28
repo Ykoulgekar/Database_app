@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Read Data</title>
+</head>
+<body>
+    <h2>User Data</h2>
+    {% if users %}
+        <table border="1">
+            <tr>
+                <th>PersonsID</th>
+                <th>LastName</th>
+                <th>FirstName</th>
+                <th>Address</th>
+                <th>City</th>
+            </tr>
+            {% for user in users %}
+            <tr>
+                <td>{{ user[0] }}</td>
+                <td>{{ user[1] }}</td>
+                <td>{{ user[2] }}</td>
+                <td>{{ user[3] }}</td>
+                <td>{{ user[4] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>No data found</p>
+    {% endif %}
+    <a href="/">Back to Home</a>
+</body>
+</html>
